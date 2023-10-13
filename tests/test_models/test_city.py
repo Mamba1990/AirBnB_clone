@@ -193,3 +193,7 @@ class TestCityToDict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495

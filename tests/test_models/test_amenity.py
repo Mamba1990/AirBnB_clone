@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
+=======
+           #!/usr/bin/python3
+>>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
 """Provides unittests for models/amenity.py.
 
 Unittest classes:
