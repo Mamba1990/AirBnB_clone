@@ -22,7 +22,7 @@ from unittest.mock import patch
 
 
 class TestHBNBCommandPrompting(unittest.TestCase):
-    """Provides Unittests for testing prompting of the HBNB command interpreter."""
+    """Provides Unittests for testing prompting of """
 
     def testPromptString(self):
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
@@ -34,7 +34,7 @@ class TestHBNBCommandPrompting(unittest.TestCase):
 
 
 class TestHBNBCommandHelp(unittest.TestCase):
-    """Provides unittests for testing help messages of the HBNB command interpreter."""
+    """Provides unittests for testing help msg."""
 
     def testHelpQuit(self):
         h = "Quit command to exit the program."
@@ -106,7 +106,7 @@ class TestHBNBCommandHelp(unittest.TestCase):
 
 
 class TestHBNBCommandExit(unittest.TestCase):
-    """Provides unittests for testing exiting from the HBNB command interpreter."""
+    """Provides unittests for testing"""
 
     def testQuitExits(self):
         with patch("sys.stdout", new=StringIO()) as output:
@@ -118,7 +118,7 @@ class TestHBNBCommandExit(unittest.TestCase):
 
 
 class TestHBNBCommandCreate(unittest.TestCase):
-    """Provides unittests for testing create from the HBNB command interpreter."""
+    """Provides unittests for testing."""
 
     @classmethod
     def setUp(self):
@@ -453,7 +453,7 @@ class TestHBNBCommandShow(unittest.TestCase):
 
 
 class TestHBNBCommandDestroy(unittest.TestCase):
-    """Provides unittests for testing destroy from the HBNB command interpreter."""
+    """Provides unittests for testing."""
 
     @classmethod
     def setUp(self):
@@ -853,7 +853,7 @@ class TestHBNBCommandAll(unittest.TestCase):
 
 
 class TestHBNBCommandUpdate(unittest.TestCase):
-    """Provides unittests for testing update from the HBNB command interpreter."""
+    """Provides unittests for testing ."""
 
     @classmethod
     def setUp(self):

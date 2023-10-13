@@ -1,26 +1,16 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
 """Represents unittests for models/place.py.
 
 Unittest classes:
     TestPlaceInstantiation
     TestPlaceSave
     TestPlaceToDict
-=======
-"""Provides unittests for models/city.py.
-
-Unittest classes:
-    TestCityInstantiation
-    TestCitySave
-    TestCityToDict
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
 """
 import os
 import models
 import unittest
 from datetime import datetime
 from time import sleep
-<<<<<<< HEAD
 from models.place import Place
 
 
@@ -124,7 +114,7 @@ class TestPlaceInstantiation(unittest.TestCase):
         sleep(0.05)
         pl2 = Place()
         self.assertLess(pl1.updated_at, pl2.updated_at)
-=======
+
 from models.city import City
 
 
@@ -174,12 +164,10 @@ class TestCityInstantiation(unittest.TestCase):
         sleep(0.05)
         cy2 = City()
         self.assertLess(cy1.updated_at, cy2.updated_at)
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
 
     def testStrRepresentation(self):
         dt = datetime.today()
         dt_repr = repr(dt)
-<<<<<<< HEAD
         pl = Place()
         pl.id = "123456"
         pl.created_at = pl.updated_at = dt
@@ -192,7 +180,6 @@ class TestCityInstantiation(unittest.TestCase):
     def testArgsUnused(self):
         pl = Place(None)
         self.assertNotIn(None, pl.__dict__.values())
-=======
         cy = City()
         cy.id = "123456"
         cy.created_at = cy.updated_at = dt
@@ -205,12 +192,10 @@ class TestCityInstantiation(unittest.TestCase):
     def testArgsUnused(self):
         cy = City(None)
         self.assertNotIn(None, cy.__dict__.values())
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
 
     def testInstantiationWithKwargs(self):
         dt = datetime.today()
         dt_iso = dt.isoformat()
-<<<<<<< HEAD
         pl = Place(id="345", created_at=dt_iso, updated_at=dt_iso)
         self.assertEqual(pl.id, "345")
         self.assertEqual(pl.created_at, dt)
@@ -223,11 +208,23 @@ class TestCityInstantiation(unittest.TestCase):
 
 class TestPlaceSave(unittest.TestCase):
     """Provides for testing save method of the Place class."""
-=======
-        cy = City(id="345", created_at=dt_iso, updated_at=dt_iso)
-        self.assertEqual(cy.id, "345")
-        self.assertEqual(cy.created_at, dt)
-        self.assertEqual(cy.updated_at, dt)
+
+    @classmethod
+    def setUp(self):
+        try:
+            os.rename("file.json", "tmp")
+        except IOError:
+            pass
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except IOError:
+            pass
+        try:
+            os.rename("tmp", "file.json")
+        except IOError:
+            pass
 
     def testInstantiationWithNoneKwargs(self):
         with self.assertRaises(TypeError):
@@ -235,8 +232,8 @@ class TestPlaceSave(unittest.TestCase):
 
 
 class TestCitySave(unittest.TestCase):
-    """Unittests for testing save method of the City class."""
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
+    """Provides unittests for testing save method of the City class."""
+
 
     @classmethod
     def setUp(self):
@@ -256,7 +253,6 @@ class TestCitySave(unittest.TestCase):
             pass
 
     def testOneSave(self):
-<<<<<<< HEAD
         pl = Place()
         sleep(0.05)
         first_updated_at = pl.updated_at
@@ -335,12 +331,6 @@ class TestPlaceToDict(unittest.TestCase):
         pl = Place()
         with self.assertRaises(TypeError):
             pl.to_dict(None)
-=======
-        cy = City()
-        sleep(0.05)
-        first_updated_at = cy.updated_at
-        cy.save()
-        self.assertLess(first_updated_at, cy.updated_at)
 
     def testTwoSaves(self):
         cy = City()
@@ -414,12 +404,7 @@ class TestCityToDict(unittest.TestCase):
         cy = City()
         with self.assertRaises(TypeError):
             cy.to_dict(None)
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
 
 
 if __name__ == "__main__":
     unittest.main()
-<<<<<<< HEAD
-=======
-         
->>>>>>> 2cbaad26e3e537e611d90c4d8dcc81a4d57d3495
