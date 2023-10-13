@@ -34,8 +34,8 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary that contains keys/values 
-        of __dict__ of the instance.    
+        """returns a dictionary that contains keys/values
+        of __dict__ of the instance.
         """
         r_dict = self.__dict__.copy()
         r_dict["created_at"] = self.created_at.isoformat()

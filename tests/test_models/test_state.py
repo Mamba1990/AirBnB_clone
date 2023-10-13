@@ -82,6 +82,8 @@ class TestStateInstantiation(unittest.TestCase):
     def testInstantiationWithNoneKwargs(self):
         with self.assertRaises(TypeError):
             State(id=None, created_at=None, updated_at=None)
+
+
 class TestStateSave(unittest.TestCase):
 
     @classmethod
@@ -130,6 +132,7 @@ class TestStateSave(unittest.TestCase):
         stid = "State." + st.id
         with open("file.json", "r") as f:
             self.assertIn(stid, f.read())
+
 
 class TestStateToDict(unittest.TestCase):
     """Provides unittests for testing to_dict method of the State class."""

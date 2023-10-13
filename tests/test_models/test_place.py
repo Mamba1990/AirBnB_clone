@@ -12,6 +12,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.place import Place
+from models.city import City
 
 
 class TestPlaceInstantiation(unittest.TestCase):
@@ -114,8 +115,6 @@ class TestPlaceInstantiation(unittest.TestCase):
         sleep(0.05)
         pl2 = Place()
         self.assertLess(pl1.updated_at, pl2.updated_at)
-
-from models.city import City
 
 
 class TestCityInstantiation(unittest.TestCase):
@@ -233,7 +232,6 @@ class TestPlaceSave(unittest.TestCase):
 
 class TestCitySave(unittest.TestCase):
     """Provides unittests for testing save method of the City class."""
-
 
     @classmethod
     def setUp(self):

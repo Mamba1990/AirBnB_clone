@@ -150,7 +150,7 @@ class TestReviewInstantiation(unittest.TestCase):
         self.assertEqual(rev.updated_at, dt)
 
     def testInstantiationWithNoneKwargs(self):
-         with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             Review(id=None, created_at=None, updated_at=None)
 
     def testArgsUnused(self):
@@ -280,6 +280,7 @@ class TestReviewToDict(unittest.TestCase):
         rev = Review()
         rev.id = "123456"
         rev.created_at = rev.updated_at = dt
+
 
 class TestReviewToDict(unittest.TestCase):
     """Provides nittests for testing to_dict method of the Review class."""

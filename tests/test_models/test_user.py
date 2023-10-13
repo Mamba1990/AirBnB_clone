@@ -5,7 +5,6 @@ Unittest classes:
     TestUserInstantiation
     TestUserSave
     TestUserToDict
-=======
 """
 import os
 import models
@@ -13,6 +12,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.user import User
+
 
 class TestUserInstantiation(unittest.TestCase):
     """Defines unittests for testing instantiation of the User class."""
@@ -60,6 +60,7 @@ class TestUserInstantiation(unittest.TestCase):
         sleep(0.05)
         us2 = User()
         self.assertLess(us1.updated_at, us2.updated_at)
+
     def testStrRepresentation(self):
         dt = datetime.today()
         dt_repr = repr(dt)
@@ -88,6 +89,7 @@ class TestUserInstantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             User(id=None, created_at=None, updated_at=None)
 
+
 class TestUserSave(unittest.TestCase):
     """Defines unittests for testing save method of the  class."""
 
@@ -114,7 +116,6 @@ class TestUserSave(unittest.TestCase):
         first_updated_at = us.updated_at
         us.save()
         self.assertLess(first_updated_at, us.updated_at)
-
 
     def testTwoSaves(self):
         us = User()
@@ -159,12 +160,14 @@ class TestUserToDict(unittest.TestCase):
         us.my_number = 98
         self.assertEqual("Holberton", us.middle_name)
         self.assertIn("my_number", us.to_dict())
+
     def testToDictDatetimeAttributesAreStrs(self):
         us = User()
         us_dict = us.to_dict()
         self.assertEqual(str, type(us_dict["id"]))
         self.assertEqual(str, type(us_dict["created_at"]))
         self.assertEqual(str, type(us_dict["updated_at"]))
+
     def testToDictOutput(self):
         dt = datetime.today()
         us = User()
@@ -177,6 +180,7 @@ class TestUserToDict(unittest.TestCase):
             'updated_at': dt.isoformat(),
         }
         self.assertDictEqual(us.to_dict(), tdict)
+
     def testContrastToDictDunderDict(self):
         us = User()
         self.assertNotEqual(us.to_dict(), us.__dict__)
@@ -185,6 +189,7 @@ class TestUserToDict(unittest.TestCase):
         us = User()
         with self.assertRaises(TypeError):
             us.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()
