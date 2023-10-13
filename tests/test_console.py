@@ -1,4 +1,4 @@
-                    #!/usr/bin/python3
+#!/usr/bin/python3
 """Represents unittests for console.py.
 
 Unittest classes:
